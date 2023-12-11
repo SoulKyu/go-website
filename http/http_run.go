@@ -1,18 +1,11 @@
 package http
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 )
 
-func SetupRouter() *gin.Engine {
-	r := gin.Default()
+func SetupRouter() {
+	app := fiber.New()
 
-	// Ping test
-	r.GET("/ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
-
-	return r
+	app.Get("/")
 }

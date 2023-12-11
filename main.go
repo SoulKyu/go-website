@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/SoulKyu/go-website/http"
+	"github.com/SoulKyu/go-website/routes"
+	"github.com/gofiber/fiber"
 )
 
 func main() {
-	r := http.SetupRouter()
+	app := fiber.New()
 	fmt.Println("Hello World !")
-	r.Run(":80")
+	app.Get("/", routes.Index)
+	app.Listen(":8888")
 }

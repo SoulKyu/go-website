@@ -1,10 +1,10 @@
 {{ define "head" }}
 <base href="{{ opts.BasePath }}">
 <meta charset="utf-8" />
-<title>GO-WEBSITE</title>
+<title>{{ .Name }}</title>
 <meta
   name="description"
-  content='Here is my go-website example'
+  content='{{ .SiteContentName }}'
 />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
