@@ -8,8 +8,12 @@ import (
 )
 
 func Index(c *fiber.Ctx) error {
-	tmpl, err := dashboard.GetTemplate("index")
-	fmt.Println(tmpl.Templates())
+	tmpl, err := dashboard.GetTemplate("test")
+	if err != nil {
+		fmt.Println("Error getting template:", err)
+	} else {
+		dashboard.DebugTemplate(tmpl, nil)
+	}
 	if err != nil {
 		return err
 	}

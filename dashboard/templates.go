@@ -3,6 +3,7 @@ package dashboard
 import (
 	"bytes"
 	"embed"
+	"fmt"
 	"html/template"
 
 	"github.com/gofiber/fiber/v2"
@@ -33,14 +34,8 @@ type baseTemplateData struct {
 func GetTemplate(name string) (*template.Template, error) {
 	tmpl := template.New(name)
 
-	// Parse the specific template file
-	_, err := tmpl.ParseFS(TemplateFS, "templates/"+name+".html")
-	if err != nil {
-		return nil, err
-	}
-
-	// Parse other templates that should be included by default
-	_, err = tmpl.ParseFS(TemplateFS, "templates/header.html")
+	// Parse the specific template file along with header and footer
+	_, err := tmpl.ParseFS(TemplateFS, "templates/"+name+".html", "templates/header.html", "templates/footer.html")
 	if err != nil {
 		return nil, err
 	}
@@ -59,4 +54,13 @@ func WriteTemplate(tmpl *template.Template, data interface{}, c *fiber.Ctx) erro
 
 	c.Status(fiber.StatusOK)
 	return c.SendString(buf.String())
+}
+
+func DebugTemplate(tmpl *template.Template, data interface{}) {
+	var buf bytes.Buffer
+	if err := tmpl.Execute(&buf, data); err != nil {
+		fmt.Println("Error executing template:", err)
+	} else {
+		fmt.Println("Template output:", buf.String())
+	}
 }
