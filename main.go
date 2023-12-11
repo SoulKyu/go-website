@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/SoulKyu/go-website/routes"
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {

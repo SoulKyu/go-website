@@ -5,7 +5,7 @@ import (
 	"embed"
 	"html/template"
 
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 )
 
 const (
@@ -40,7 +40,7 @@ func GetTemplate(name string) (*template.Template, error) {
 	}
 
 	// Parse other templates that should be included by default
-	_, err = tmpl.ParseFS(TemplateFS, "templates/header.html", "templates/footer.html")
+	_, err = tmpl.ParseFS(TemplateFS, "templates/header.html")
 	if err != nil {
 		return nil, err
 	}
@@ -48,14 +48,15 @@ func GetTemplate(name string) (*template.Template, error) {
 	return tmpl, nil
 }
 
-func WriteTemplate(tmpl *template.Template, data interface{}, c *fiber.Ctx) {
+func WriteTemplate(tmpl *template.Template, data interface{}, c *fiber.Ctx) error {
 	buf := new(bytes.Buffer)
 	err := tmpl.Execute(buf, data)
 	if err != nil {
 		c.Status(fiber.StatusInternalServerError)
 		c.SendString(err.Error())
+		return err
 	}
 
 	c.Status(fiber.StatusOK)
-	c.SendString(buf.String())
+	return c.SendString(buf.String())
 }
