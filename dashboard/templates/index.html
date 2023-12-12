@@ -4,8 +4,20 @@
 <head>
     {{ template "head" . }}
 </head>
-<body>
-    <h1>Welcome to My Gin Webserver</h1>
+<body class="bg-cover bg-center" style="background-image: url('http://127.0.0.1:8888/assets/background');">
+    <div class="flex h-screen">
+        <div class="m-auto bg-white p-6 rounded shadow-lg" style="width: 600px;">
+            <!-- Instruction Text -->
+            <h2 class="text-lg mb-4 font-semibold text-gray-700">Rentre ici une information qui nous lie tous les deux</h2>
+            <form hx-post="http://127.0.0.1:8888/submit" hx-target="#response">
+                <input type="text" name="userInput" class="border p-2 w-full mb-8">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Submit
+                </button>
+            </form>
+            <div id="response"></div>
+        </div>
+    </div>
 </body>
 <footer>
     {{ template "footer" . }}

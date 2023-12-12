@@ -17,7 +17,9 @@ const (
 
 var (
 	//go:embed templates/*.html
-	TemplateFS               embed.FS
+	TemplateFS embed.FS
+	//go:embed assets/*.jpg
+	AssetsFS                 embed.FS
 	templates                map[string]*template.Template
 	defaultIncludedTemplates = []string{
 		"head",

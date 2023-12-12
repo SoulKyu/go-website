@@ -1,0 +1,35 @@
+{{ define "souvenirs" }}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    {{ template "head" . }}
+    <style>
+        .bg-img-cover {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .text-background {
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="flex flex-row flex-wrap justify-center items-center container mx-auto">
+        {{ range .Souvenirs }}
+        <a href="/{{ .Name }}" class="block bg-white p-4 shadow-md rounded-md m-2 hover:bg-gray-100 bg-img-cover" style="width: 450px; height: 450px; background-image: url('http://127.0.0.1:8888/assets/{{ .PhotoPath }}');">
+            <div class="text-background">
+                <h2 class="font-bold text-xl mb-2">{{ .Date }}</h2>
+            </div>
+        </a>
+        {{ end }}
+    </div>
+</body>
+<footer>
+    {{ template "footer" . }}
+</footer>
+</html>
+{{ end }}
