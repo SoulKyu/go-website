@@ -1,0 +1,21 @@
+{{ define "Mariage1" }}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    {{ template "head" . }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
+    {{ template "souvenir" . }}
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="px-4 py-6 sm:px-0">
+            <div class="h-30">
+                <h1 class="text-3xl font-bold text-gray-800">Le Bonus</h1>
+                <p>Une petite compilation bonus juste parce que je t'aime</p>
+            </div>
+        </div>   
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</body>
+</html>
+{{ end }}

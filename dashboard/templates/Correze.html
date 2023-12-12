@@ -1,0 +1,32 @@
+{{ define "Correze" }}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    {{ template "head" . }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
+    {{ template "souvenir" . }}
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="px-4 py-6 sm:px-0">
+            <div class="h-30">
+                <h1 class="text-3xl font-bold text-gray-800">La Corréze, Le Cantal et Le Lot</h1>
+                <p>Nos petites vacances entre la Correze, le Cantal et le Lot</p>
+            </div>
+            <div class="m-auto bg-white p-6 rounded shadow-lg" style="width: 600px;">
+                <!-- Instruction Text -->
+                <h2 class="text-lg mb-4 font-semibold text-gray-700">Tu te rappelle du point le plus haut de notre journée?</h2>
+                <form hx-post="http://127.0.0.1:8888/correzesubmit" hx-target="#response">
+                    <input type="text" name="userInput" class="border p-2 w-full mb-8">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Submit
+                    </button>
+                </form>
+                <div id="response"></div>
+            </div>
+        </div>   
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</body>
+</html>
+{{ end }}

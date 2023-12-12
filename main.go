@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("Hello World !")
 	app.Get("/", routes.Index)
 	app.Post("/submit", routes.Submit)
+	app.Post("/correzesubmit", routes.CorrezeSubmit)
 	app.Get("/souvenirs", routes.Souvenirs)
 	app.Get("/souvenir/:name", routes.SouvenirHome)
 	routes.SetupStatic(app, "/", dashboard.AssetsFS)

@@ -56,6 +56,23 @@ func Submit(c *fiber.Ctx) error {
 	return c.SendString(response)
 }
 
+func CorrezeSubmit(c *fiber.Ctx) error {
+	userInput := c.FormValue("userInput")
+	response := ""
+
+	if userInput == "Puy Mary" {
+		response = "Bravo tu as trouvée !"
+		return c.SendString(response)
+	}
+	if userInput == "Taiga" || userInput == "taiga" {
+		response = "Oh mon gros bb Taigounette d'amour... Mais non, c'est pas ca!"
+		return c.SendString(response)
+	} else {
+		response = "Ce n'est pas la bonne réponse, essaie encore <3"
+		return c.SendString(response)
+	}
+}
+
 func SetupStatic(app *fiber.App, root string, fs embed.FS) {
 	app.Use(root, func(c *fiber.Ctx) error {
 		file, err := fs.ReadFile("assets" + c.OriginalURL())
