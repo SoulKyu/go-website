@@ -61,8 +61,38 @@ func CorrezeSubmit(c *fiber.Ctx) error {
 	response := ""
 
 	if userInput == "Puy Mary" {
-		response = "Bravo tu as trouvée !"
-		return c.SendString(response)
+		html := `
+		<p>Bravo tu as trouvée !</p>
+		<body class="flex items-center justify-center h-screen bg-gray-200">
+		<div class="container flex">
+			<!-- Card 1 -->
+			<div class="panel bg-cover bg-center w-24 h-96 transition-all duration-500 ease-in-out transform hover:scale-125 hover:w-96" style="background-image: url('http://127.0.0.1:8888/IMG_5876.jpg')">
+			</div>  
+			<div class="panel bg-cover bg-center w-24 h-96 transition-all duration-500 ease-in-out transform hover:scale-125 hover:w-96" style="background-image: url('http://127.0.0.1:8888/IMG_6176.jpg')">
+			</div>        
+			<!-- Additional cards... -->
+		</div>
+	
+		<script>
+			const panels = document.querySelectorAll('.panel');
+		
+			panels.forEach(panel => {
+				panel.addEventListener('click', () => {
+					removeActiveClasses();
+					panel.classList.add('active');
+				});
+			});
+		
+			function removeActiveClasses() {
+				panels.forEach(panel => {
+					panel.classList.remove('active');
+				});
+			}
+		</script>
+		
+		</body>
+		`
+		return c.SendString(html)
 	}
 	if userInput == "Taiga" || userInput == "taiga" {
 		response = "Oh mon gros bb Taigounette d'amour... Mais non, c'est pas ca!"
