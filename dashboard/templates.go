@@ -18,7 +18,7 @@ const (
 var (
 	//go:embed templates/*.html
 	TemplateFS embed.FS
-	//go:embed assets/*.jpg
+	//go:embed assets/*.*
 	AssetsFS                 embed.FS
 	templates                map[string]*template.Template
 	defaultIncludedTemplates = []string{
@@ -33,12 +33,19 @@ type baseTemplateData struct {
 	JSON     template.JS
 }
 
-func GetTemplate(name string) (*template.Template, error) {
+func GetTemplate(name string, templates ...string) (*template.Template, error) {
 	tmpl := template.New(name)
 
 	_, err := tmpl.ParseFS(TemplateFS, fmt.Sprintf("templates/%s.html", name), "templates/header.html", "templates/footer.html")
 	if err != nil {
 		return nil, err
+	}
+
+	for _, template := range templates {
+		_, err = tmpl.ParseFS(TemplateFS, fmt.Sprintf("templates/%s.html", template))
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return tmpl, nil

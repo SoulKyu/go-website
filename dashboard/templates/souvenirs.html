@@ -20,7 +20,7 @@
 <body class="bg-gray-100 p-4">
     <div class="flex flex-row flex-wrap justify-center items-center container mx-auto">
         {{ range .Souvenirs }}
-        <a href="/{{ .Name }}" class="block bg-white p-4 shadow-md rounded-md m-2 hover:bg-gray-100 bg-img-cover" style="width: 450px; height: 450px; background-image: url('http://127.0.0.1:8888/assets/{{ .PhotoPath }}');">
+        <a href="/souvenir/{{ .Name }}" class="block bg-white p-4 shadow-md rounded-md m-2 hover:bg-gray-100 bg-img-cover" style="width: 450px; height: 450px; background-image: url('http://127.0.0.1:8888/{{ .PhotoPath }}.jpg');">
             <div class="text-background">
                 <h2 class="font-bold text-xl mb-2">{{ .Date }}</h2>
             </div>

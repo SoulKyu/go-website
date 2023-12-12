@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"embed"
 	"fmt"
 
 	"github.com/SoulKyu/go-website/dashboard"
@@ -16,6 +17,16 @@ func Index(c *fiber.Ctx) error {
 	return dashboard.WriteTemplate(tmpl, nil, c)
 }
 
+func SouvenirHome(c *fiber.Ctx) error {
+	name := c.Params("name")
+	tmpl, err := dashboard.GetTemplate(name, "souvenir")
+	if err != nil {
+		fmt.Println("Error getting template", err)
+		return err
+	}
+	return dashboard.WriteTemplate(tmpl, nil, c)
+}
+
 func Souvenirs(c *fiber.Ctx) error {
 	tmpl, err := dashboard.GetTemplate("souvenirs")
 	if err != nil {
@@ -26,11 +37,6 @@ func Souvenirs(c *fiber.Ctx) error {
 	return dashboard.WriteTemplate(tmpl, fiber.Map{
 		"Souvenirs": souvenirs,
 	}, c)
-}
-
-func ServerAssets(c *fiber.Ctx) error {
-	name := c.Params("name")
-	return serveAssets(c, name)
 }
 
 func Submit(c *fiber.Ctx) error {
@@ -50,10 +56,12 @@ func Submit(c *fiber.Ctx) error {
 	return c.SendString(response)
 }
 
-func serveAssets(c *fiber.Ctx, name string) error {
-	file, err := dashboard.AssetsFS.ReadFile(fmt.Sprintf("assets/%s.jpg", name))
-	if err != nil {
-		return c.SendStatus(fiber.StatusInternalServerError)
-	}
-	return c.Type("jpg").Send(file)
+func SetupStatic(app *fiber.App, root string, fs embed.FS) {
+	app.Use(root, func(c *fiber.Ctx) error {
+		file, err := fs.ReadFile("assets" + c.OriginalURL())
+		if err != nil {
+			return c.SendStatus(fiber.StatusNotFound)
+		}
+		return c.Send(file)
+	})
 }
