@@ -3,18 +3,39 @@
 <html lang="en-US">
 <head>
     {{ template "head" . }}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <style>
+        .image-container {
+            perspective: 1000px;
+            max-width: 1000px; /* Maximum width */
+            margin: auto;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .image-container img {
+            width: 30%;
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+            transform: rotateY(-20deg); /* Slight 3D effect */
+            transform-style: preserve-3d;
+            filter: blur(30px); /* Apply blur effect */
+        }
+        .image-container:hover img {
+            width: 100%; /* Increased width */
+            transform: rotateY(0deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+            filter: blur(0px); /* Apply blur effect */
+        }
+    </style>
 </head>
-<body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
+<body class="font-roboto bg-gray-100">
     {{ template "souvenir" . }}
-    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="px-4 py-6 sm:px-0">
-            <div class="h-30">
-                <h1 class="text-3xl font-bold text-gray-800">Le Bonus</h1>
-                <p>Une petite compilation bonus juste parce que je t'aime</p>
-            </div>
-        </div>   
-    </main>
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="image-container">
+            <img src="http://127.0.0.1:8888/IMG_2129.jpg" alt="Landscape Image">
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 </html>

@@ -62,35 +62,34 @@ func CorrezeSubmit(c *fiber.Ctx) error {
 
 	if userInput == "Puy Mary" {
 		html := `
-		<p>Bravo tu as trouvée !</p>
 		<body class="flex items-center justify-center h-screen bg-gray-200">
-		<div class="container flex">
-			<!-- Card 1 -->
-			<div class="panel bg-cover bg-center w-24 h-96 transition-all duration-500 ease-in-out transform hover:scale-125 hover:w-96" style="background-image: url('http://127.0.0.1:8888/IMG_5876.jpg')">
-			</div>  
-			<div class="panel bg-cover bg-center w-24 h-96 transition-all duration-500 ease-in-out transform hover:scale-125 hover:w-96" style="background-image: url('http://127.0.0.1:8888/IMG_6176.jpg')">
-			</div>        
-			<!-- Additional cards... -->
+		<p class="text-xl text-gray-800 font-bold mb-4">Bravo tu as trouvée !</p>
+		<div class="flex">
+			<div class="panel w-24 h-96" style="background-image: url('http://127.0.0.1:8888/IMG_5845.jpg')"></div>
+			<div class="panel w-24 h-96" style="background-image: url('http://127.0.0.1:8888/IMG_5847.jpg')"></div>
+			<div class="panel w-24 h-96" style="background-image: url('http://127.0.0.1:8888/IMG_5857.jpg')"></div>
+			<div class="panel w-24 h-96" style="background-image: url('http://127.0.0.1:8888/IMG_5871.jpg')"></div>
+			<div class="panel w-24 h-96" style="background-image: url('http://127.0.0.1:8888/IMG_5899.jpg')"></div>
 		</div>
 	
 		<script>
-			const panels = document.querySelectorAll('.panel');
-		
-			panels.forEach(panel => {
-				panel.addEventListener('click', () => {
-					removeActiveClasses();
-					panel.classList.add('active');
-				});
-			});
-		
-			function removeActiveClasses() {
+			document.addEventListener('DOMContentLoaded', () => {
+				const panels = document.querySelectorAll('.panel');
 				panels.forEach(panel => {
-					panel.classList.remove('active');
+					panel.addEventListener('click', () => {
+						removeActiveClasses();
+						panel.classList.add('active');
+					});
 				});
-			}
+	
+				function removeActiveClasses() {
+					panels.forEach(panel => {
+						panel.classList.remove('active');
+					});
+				}
+			});
 		</script>
-		
-		</body>
+	</body>
 		`
 		return c.SendString(html)
 	}

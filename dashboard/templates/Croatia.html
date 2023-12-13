@@ -5,17 +5,21 @@
     {{ template "head" . }}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
+<body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4 bg-cover bg-center" style="background-image: url('http://127.0.0.1:8888/IMG_6367.jpg');">
     {{ template "souvenir" . }}
     <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
-            <div class="h-30">
+            <!-- White container for text -->
+            <div class="bg-white p-6 rounded-lg shadow-lg opacity-75">
                 <h1 class="text-3xl font-bold text-gray-800">La Croatie</h1>
                 <p>
-                    Que de souvenir inoubliable, absolument tout était parfait lors de ces vacances.\n
-                    Merci à toi de m'avoir fait confiance pendant l'ogranisation et sur les différentes activitées.\n
-                    C'était incroyable, les paysages et tout le reste ! Qu'elle vacances inoubliable !\n
-                    Je souhaite qu'on se serve de cette réussite pour continuer d'organiser et de vivre des moments inoubliable comme celui la.\n
+                    Que de souvenir inoubliable, absolument tout était parfait lors de ces vacances.
+                    <br>
+                    Merci à toi de m'avoir fait confiance pendant l'ogranisation et sur les différentes activitées.
+                    <br>
+                    C'était incroyable, les paysages et tout le reste ! Qu'elle vacances inoubliable !
+                    <br>
+                    Je souhaite qu'on se serve de cette réussite pour continuer d'organiser et de vivre des moments inoubliable comme celui la.
                 </p>
             </div>
         </div>   

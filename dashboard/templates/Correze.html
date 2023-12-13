@@ -4,6 +4,26 @@
 <head>
     {{ template "head" . }}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <style>
+        .panel {
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            border-radius: 12px; /* Rounded corners */
+            overflow: hidden; /* Ensures the content respects border radius */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .panel:hover, .panel.active {
+            transform: scale(1.05);
+            width: 24rem; /* Tailwind w-96 */
+            z-index: 10; /* Ensures the expanded card is above others */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* More prominent shadow on active/hover */
+        }
+        .panel:not(.active) {
+            /* Removed opacity change to maintain consistent color */
+        }
+    </style>
 </head>
 <body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
     {{ template "souvenir" . }}
