@@ -26,7 +26,6 @@ func generateSouvenirs() []Souvenir {
 		*NewSouvenir("Suisse", "15/07/2022", "IMG_4738"),
 		*NewSouvenir("Malte", "31/08/2022", "IMG_5018"),
 		*NewSouvenir("Beauval", "24/09/2022", "IMG_5225"),
-		*NewSouvenir("Noel2", "24/12/2022", "IMG_5429"),
 		*NewSouvenir("Correze", "24/05/2023", "IMG_5876"),
 		*NewSouvenir("Mariages", "15/07/2023", "IMG_4800"),
 		*NewSouvenir("Croatia", "02/09/2023", "IMG_6373"),
