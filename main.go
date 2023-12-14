@@ -14,6 +14,7 @@ func main() {
 	app.Get("/", routes.Index)
 	app.Post("/submit", routes.Submit)
 	app.Post("/correzesubmit", routes.CorrezeSubmit)
+	app.Post("/cisklemon", routes.CiskLemon)
 	app.Get("/souvenirs", routes.Souvenirs)
 	app.Get("/souvenir/:name", routes.SouvenirHome)
 	routes.SetupStatic(app, "/", dashboard.AssetsFS)

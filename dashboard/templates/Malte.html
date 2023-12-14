@@ -4,14 +4,35 @@
 <head>
     {{ template "head" . }}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <style>
+        img {
+            width: 50%;
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+        }
+        img:hover {
+            transform: rotate(360deg);
+        }
+    </style>
 </head>
 <body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
     {{ template "souvenir" . }}
     <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
             <div class="h-30">
-                <h1 class="text-3xl font-bold text-gray-800">Le Bonus</h1>
-                <p>Une petite compilation bonus juste parce que je t'aime</p>
+                <h1 class="text-3xl font-bold text-gray-800">Malte</h1>
+                <p>Nos premières vacances organisées à 100% par nous, j'en garderai toute ma vie un souvenir magnifique. Merci</p>
+            </div>
+            <div class="m-auto bg-white p-6 rounded shadow-lg" style="width: 600px;">
+                <!-- Instruction Text -->
+                <h2 class="text-lg mb-4 font-semibold text-gray-700">Le nom de notre bière préféré à Malte ?</h2>
+                <form hx-post="http://127.0.0.1:8888/cisklemon" hx-target="#response">
+                    <input type="text" name="userInput" class="border p-2 w-full mb-8">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Submit
+                    </button>
+                </form>
+                <div id="response"></div>
             </div>
         </div>   
     </main>

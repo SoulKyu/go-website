@@ -102,6 +102,29 @@ func CorrezeSubmit(c *fiber.Ctx) error {
 	}
 }
 
+func CiskLemon(c *fiber.Ctx) error {
+	userInput := c.FormValue("userInput")
+	response := ""
+
+	if userInput == "Lemon Cisk" || userInput == "Cisk Lemon" {
+		html := `
+		<body class="flex items-center justify-center h-screen bg-gray-200">
+			<h1>Vive Malte</h1>
+			<img src='http://127.0.0.1:8888/IMG_5018.jpg' alt='Funny Image' />
+			<p>Surprise <3</p>
+		</body>
+		`
+		return c.SendString(html)
+	}
+	if userInput == "Taiga" || userInput == "taiga" {
+		response = "Oh mon gros bb Taigounette d'amour... Mais non, c'est pas ca!"
+		return c.SendString(response)
+	} else {
+		response = "Petit indice ?, CITRON !"
+		return c.SendString(response)
+	}
+}
+
 func SetupStatic(app *fiber.App, root string, fs embed.FS) {
 	app.Use(root, func(c *fiber.Ctx) error {
 		file, err := fs.ReadFile("assets" + c.OriginalURL())

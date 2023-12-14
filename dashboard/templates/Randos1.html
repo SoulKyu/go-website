@@ -3,17 +3,90 @@
 <html lang="en-US">
 <head>
     {{ template "head" . }}
+    <style>
+        /* Ajouter un style personnalisé si nécessaire */
+        .gallery-container {
+            overflow-y: auto; /* Permettre le défilement vertical */
+            max-height: 90vh; /* Limiter la hauteur maximale */
+        }
+    </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 </head>
 <body class="font-roboto flex items-center justify-center h-screen m-0 bg-gray-100 p-4">
     {{ template "souvenir" . }}
     <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="px-4 py-6 sm:px-0">
-            <div class="h-30">
-                <h1 class="text-3xl font-bold text-gray-800">Le Bonus</h1>
-                <p>Une petite compilation bonus juste parce que je t'aime</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mx-8 gallery-container">
+            <h1 class="text-4xl text-center text-red-600 font-bold my-8">Les randonnées de l'amour</h1>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_2706.JPG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
             </div>
-        </div>   
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_6215.JPG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_1558.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_2029.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_2512.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_2915.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_2949.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_3180.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_3825.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_3829.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_4675.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_4752.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_4990.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_5841.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_5872.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_5891.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+            <div class="relative">
+                <img src="http://127.0.0.1:8888/IMG_6295.JPEG" alt="Love Image" class="w-full rounded-lg transform transition duration-300 hover:scale-105 hover:opacity-80">
+                <div class="absolute inset-0 bg-[url('http://127.0.0.1:8888/heart.jpg')] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-300 hover:opacity-50"></div>
+            </div>
+
+        </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
